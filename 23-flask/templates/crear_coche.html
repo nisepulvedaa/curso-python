@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Mantedor de Coches
+{% endblock %}
+
+{% block content %}
+
+
+{% if coche  %}
+    <h1>Editar Coche: {{coche.1}} {{coche.2}}</h1>
+{% else %}
+    <h1>Crear Coches</h1>
+{% endif %}
+
+<form action method="POST">
+    <label for="marca">Marca</label>
+    <input type="text" name="marca"  {% if coche  %} value="{{coche.1}}" {% endif %} />
+
+    <label for="modelo">Modelo</label>
+    <input type="text" name="modelo" {% if coche  %} value="{{coche.2}}" {% endif %} />
+
+
+    <label for="precio">Precio</label>
+    <input type="number" name="precio" {% if coche  %} value="{{coche.3}}" {% endif %} />
+
+    <label for="ciudad">Ciudad</label>
+    <input type="text" name="ciudad" {% if coche  %} value="{{coche.4}}" {% endif %} />
+    
+    {% if coche  %}
+        <input type="submit" value="Editar" class="btn btn-success" />
+    {% else %}
+        <input type="submit" value="Guardar" class="btn btn-success"  />
+    {% endif %}
+
+
+
+
+
+</form>
+
+
+
+
+
+
+{% endblock %}

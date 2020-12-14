@@ -1,0 +1,24 @@
+{% extends 'layout.html' %} 
+{% block title %} 
+Página de pruebas 
+{% endblock %} 
+{% block content%}
+<h1 class="title">Página de mi Web</h1>
+<h2>{{ "Creado por Nicolás Sepúlveda"|cut:"ñ" }}</h2>
+
+{{texto|default:"No hay nada"}}
+<p>{{lista|random}}</p>
+<p>{{lista|first}}</p>
+<p>{{lista|last}}</p>
+<p>{{lista|join:', '}}</p>
+<p>{{lista|length}}</p>
+<p>{{"texto pruebas"|length}}</p>
+<p>{{"texTo prueBas"}}</p>
+<p>{{"texto pruebas"|upper}}</p>
+<p>{{"texto pruebas"|lower}}</p>
+<p>{{"<h1>texto</h1> <strong>pruebas</strong>hola <p>mundo</p>"|striptags|wordcount}}</p>
+<p>{{lista}}</p>
+{% load filters %}
+{{"Nicolas"|saludo|safe}}
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {%endblock%} | usando Templates
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <!--Cabecera de la pagina-->
+    <header>
+        <div id="logotipo">
+            <!--Logo Django-->
+            <img src="{% static 'images/logo.png' %}">
+            <h1>Sitio web con Django</h1>
+        </div>
+
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'inicio' %}">Inicio</a>
+            </li>
+            <li>
+                <a href="{% url 'articulos' %}">Articulos</a>
+            </li>
+            <li>
+                <a href="{% url 'create_article' %}">Crear Articulo</a>
+            </li>
+              <li>
+                <a href="{% url 'create_full_article' %}">Crear Articulo 2</a>
+            </li>
+            <li>
+                <a href="{% url 'hola_mundo' %}">Hola Mundo</a>
+            </li>
+            <li>
+                <a href="{% url 'pagina' %}">Pagina de Pruebas</a>
+            </li>
+            <li>
+                <a href="{% url 'contacto' 'Nicolas' 'Sepulveda' %}">Contacto</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+
+        <div class="box">
+
+
+            {% block content %}
+            <!--Codigo que viene de template-->
+            <strong>Contenido del bloque original!!!</strong> {% endblock %}
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        Master en Python &copy; Nicolas Sepulveda - {% now "Y " %}
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+{% if  edad >= 18 and edad <= 100 %}
+    <h2>Eres Mayor de edad</h2>
+{% elif edad >= 100 %}
+<h2>Eres de  Avanzada  edad</h2>
+{% else %}
+     <h2>Eres Menor de edad</h2>
+{% endif %}
+<p>Tu edad es: {{edad}}</p>
+<hr/>

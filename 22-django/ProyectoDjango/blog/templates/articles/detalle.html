@@ -1,0 +1,34 @@
+{% extends 'layouts/layout.html' %}
+
+{% block  title %}
+
+    {{article.title}}
+
+{% endblock  %}
+
+
+
+{% block  content %}
+
+    <h1 class="title">{{article.title}}</h1>
+
+
+     {% if article.image != 'null' and article.image.url|length >= 1  %}
+            <div class="image">
+                <img src="{{article.image.url}}" />
+            </div>
+        {% else %}
+          <div class="image">
+                <img src="https://josefacchin.com/wp-content/uploads/2018/09/http-not-found-error-404.png" />
+            </div>
+        
+        {% endif %}
+
+
+    <span class="date">{{article.created_at}}</span>
+    <p class="contenido">
+        {{article.content|safe}}
+    </p>
+
+
+{% endblock  %}
